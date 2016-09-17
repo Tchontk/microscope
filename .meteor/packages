@@ -23,3 +23,6 @@ twbs:bootstrap
 iron:router
 sacha:spin
 session
+stylus
+ian:accounts-ui-bootstrap-3
+accounts-password
