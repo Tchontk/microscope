@@ -13,4 +13,14 @@ if (Posts.find().count() === 0) {
     title: 'The Meteor Book',
     url: 'http://themeteorbook.com'
   });
+
+  Posts.insert({
+    title: 'Introducing Telescope',
+    url: 'http://sachagreif.com/introducing-telescope/'
+  });
+
+  Posts.insert({
+    title: 'Meteor',
+    url: 'http://meteor.com'
+  });
 }
