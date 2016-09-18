@@ -14,6 +14,10 @@ Template.postsList.helpers({
 */
 Template.postsList.helpers({
   posts: function() {
-    return Posts.find();
+    return Posts.find({}, {
+      sort: {
+        submited: -1
+      }
+    });
   }
 });
