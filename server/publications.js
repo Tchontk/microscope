@@ -1,7 +1,12 @@
-Meteor.publish('posts', function(author) {
+import {
+  check
+} from 'meteor/check';
+
+Meteor.publish('posts', function() {
   return Posts.find({});
 });
-Meteor.publish('comments', function() {
+Meteor.publish('comments', function(postId) {
+  check(postId, String);
   return Comments.find();
 });
 /*
