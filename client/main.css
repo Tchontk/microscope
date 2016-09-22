@@ -78,7 +78,7 @@ body {
   transition: all 300ms 0ms ease-in;
 }
 
-.post .upvote {
+.post .upvotable {
   display: block;
   margin: 7px 12px 0 0;
   float: left;
