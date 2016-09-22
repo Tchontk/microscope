@@ -3,7 +3,7 @@ Errors = new Meteor.Collection(null);
 // function utilisée pour récupérer les messages d'erreurs 
 throwError = function(message) {
   Errors.insert({
-    message: message
+    message: message,
   });
 };
 
@@ -14,7 +14,7 @@ throwError = function(message) {
 Template.errors.helpers({
   errors: function() {
     return Errors.find();
-  }
+  },
 });
 
 // Suppresion de l'alert

@@ -12,14 +12,14 @@ Template.postEdit.events({
       return Session.set('postEditErrors', errors);
     };
     Posts.update(currentPostId, {
-      $set: postProperties
+      $set: postProperties,
     }, function(error) {
       if (error) {
         // affiche l'erreur à l'utilisateur
         throwError(error.reason);
       } else {
         Router.go('postPage', {
-          _id: currentPostId
+          _id: currentPostId,
         });
       }
     });
@@ -31,7 +31,7 @@ Template.postEdit.events({
       Posts.remove(currentPostId);
       Router.go('postsList');
     };
-  }
+  },
 });
 
 Template.postEdit.onCreated(function() {
@@ -44,5 +44,5 @@ Template.postEdit.helpers({
   },
   errorClass: function(field) {
     return !!Session.get('postEditErrors')[field] ? 'has-error' : '';
-  }
+  },
 });

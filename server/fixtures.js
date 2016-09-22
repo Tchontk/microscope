@@ -1,18 +1,18 @@
 if (Posts.find().count() === 0) {
-  var now = new Date().getTime();
-  var tomId = Meteor.users.insert({
+  const now = new Date().getTime();
+  const tomId = Meteor.users.insert({
     profile: {
       name: 'Tom Coleman'
     }
   });
-  var tom = Meteor.users.findOne(tomId);
-  var sachaId = Meteor.users.insert({
+  const tom = Meteor.users.findOne(tomId);
+  const sachaId = Meteor.users.insert({
     profile: {
       name: 'Sacha Greif'
     }
   });
-  var sacha = Meteor.users.findOne(sachaId);
-  var telescopeId = Posts.insert({
+  const sacha = Meteor.users.findOne(sachaId);
+  const telescopeId = Posts.insert({
     title: 'Introducing Telescope',
     userId: sacha._id,
     author: sacha.profile.name,
@@ -50,7 +50,7 @@ if (Posts.find().count() === 0) {
     submitted: new Date(now - 12 * 3600 * 1000),
     commentsCount: 0
   });
-  for (var i = 0; i < 100; i++) {
+  for (let i = 0; i < 100; i++) {
     Posts.insert({
       title: 'Test post #' + i,
       author: sacha.profile.name,
