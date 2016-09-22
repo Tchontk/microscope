@@ -18,7 +18,9 @@ if (Posts.find().count() === 0) {
     author: sacha.profile.name,
     url: 'http://sachagreif.com/introducing-telescope/',
     submitted: new Date(now - 7 * 3600 * 1000),
-    commentsCount: 2
+    commentsCount: 2,
+    upvoters: [],
+    votes: 0
   });
   Comments.insert({
     postId: telescopeId,
@@ -40,7 +42,9 @@ if (Posts.find().count() === 0) {
     author: tom.profile.name,
     url: 'http://meteor.com',
     submitted: new Date(now - 10 * 3600 * 1000),
-    commentsCount: 0
+    commentsCount: 0,
+    upvoters: [],
+    votes: 0
   });
   Posts.insert({
     title: 'The Meteor Book',
@@ -48,7 +52,9 @@ if (Posts.find().count() === 0) {
     author: tom.profile.name,
     url: 'http://themeteorbook.com',
     submitted: new Date(now - 12 * 3600 * 1000),
-    commentsCount: 0
+    commentsCount: 0,
+    upvoters: [],
+    votes: 0
   });
   for (let i = 0; i < 100; i++) {
     Posts.insert({
@@ -57,7 +63,9 @@ if (Posts.find().count() === 0) {
       userId: sacha._id,
       url: 'http://google.com/?q=test-' + i,
       submitted: new Date(now - i * 3600 * 1000),
-      commentsCount: 0
+      commentsCount: 0,
+      upvoters: [],
+      votes: 0
     });
   }
 }
