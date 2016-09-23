@@ -1,7 +1,24 @@
+// Supprime les possibles erreurs d'une précédente visite
+// A chaque appel de ce formulaire, l'objet est remis à vide
+Template.postSubmit.onCreated(function() {
+  Session.set('postSubmitErrors', {});
+});
+
+// Gère l'affichage des erreurs
+// _field est le nom du champ
+Template.postSubmit.helpers({
+  errorMessage: function(field) {
+    return Session.get('postSubmitErrors')[field];
+  },
+  errorClass: function(field) {
+    return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
+  }
+});
+
 Template.postSubmit.events({
   'submit form': function(e) {
     e.preventDefault();
-    let post = {
+    var post = {
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=title]').val()
     };
@@ -20,24 +37,8 @@ Template.postSubmit.events({
         throwError('Ce lien a déjà été utilisé');
       };
       Router.go('postPage', {
-        _id: result._id
+        _id: result._id,
       });
     });
-  }
-});
-// Supprime les possibles erreurs d'une précédente visite
-// A chaque appel de ce formulaire, l'objet est remis à vide
-Template.postSubmit.onCreated(function() {
-  Session.set('postSubmitErrors', {});
-});
-
-// Gère l'affichage des erreurs
-// _field est le nom du champ
-Template.postSubmit.helpers({
-  errorMessage: function(field) {
-    return Session.get('postSubmitErrors')[field];
   },
-  errorClass: function(field) {
-    return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
-  }
 });
