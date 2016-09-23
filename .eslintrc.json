@@ -1,10 +1,14 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:meteor/recommended"
+  ],
   "installedESLint": true,
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "meteor"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
@@ -12,6 +16,9 @@
     "ecmaFeatures": {
       "jsx": true
     }
+  },
+  "settings": {
+    "import/resolver": "meteor"
   },
   "rules": {
     "linebreak-style": "off",
